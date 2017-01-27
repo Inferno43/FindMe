@@ -11,6 +11,8 @@ import com.inferno43.findme.callbacks.AbstractActivityCallback;
  */
 
 public class BaseActivity extends AppCompatActivity implements AbstractActivityCallback{
+
+
     @Override
     public void startActivity(Class<? extends AppCompatActivity> claz, boolean addTobackstack, Bundle args) {
         startActivity(new Intent(this,claz));

@@ -1,19 +1,23 @@
 package com.inferno43.findme.dagger.component;
 
-import com.inferno43.findme.LoginActivity;
-import com.inferno43.findme.dagger.modules.AppModule;
+import android.content.Context;
+
+import com.inferno43.findme.BaseActivity;
+import com.inferno43.findme.login.LoginActivity;
+import com.inferno43.findme.dagger.modules.HelperModule;
 
 import javax.inject.Singleton;
 
 import dagger.Component;
 
 /**
- * Created by ${ mohanakrishnan.m} on 1/23/17.
+ * Created by ${ saravana } on 1/23/17.
  */
 
 @Singleton
-@Component(modules={AppModule.class, HelperComponent.class})
+@Component(modules={ HelperModule.class})
 public interface HelperComponent {
 
-    void inject(LoginActivity activity);
+    Context context();
+    void injectHelper(BaseActivity activity);
 }
