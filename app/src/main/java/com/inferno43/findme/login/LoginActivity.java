@@ -9,11 +9,7 @@ import com.inferno43.findme.dagger.Injector;
 
 import javax.inject.Inject;
 
-public class LoginActivity extends BaseActivity {
-
-
-    //private LoginView loginView;
-
+public class LoginActivity extends BaseActivity  {
     @Inject LoginPresenter loginPresenter;
 
     Context context;
@@ -22,8 +18,16 @@ public class LoginActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         context = this;
-        new Injector(new LoginView(context)).getLoginComponent().injectLoginPresenter(this);
+        LoginFragment loginFragment =
+                (LoginFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
+        if (loginFragment == null ) {
+           // replaceFragment(LoginFragment.class,false,null);
+            loginFragment = new LoginFragment();
+            addFragmentToActivity(getSupportFragmentManager(),loginFragment,R.id.contentFrame);
+        }
+        new Injector(loginFragment).getLoginComponent().injectLoginPresenter(this);
 
         loginPresenter.start();
+
     }
 }

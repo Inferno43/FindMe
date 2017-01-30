@@ -7,8 +7,8 @@ import com.inferno43.findme.dagger.component.HelperComponent;
 import com.inferno43.findme.dagger.modules.HelperModule;
 import com.inferno43.findme.login.DaggerLoginComponent;
 import com.inferno43.findme.login.LoginComponent;
+import com.inferno43.findme.login.LoginFragment;
 import com.inferno43.findme.login.LoginModule;
-import com.inferno43.findme.login.LoginView;
 
 /**
  * Created by ${ mohanakrishnan.m} on 1/25/17.
@@ -26,8 +26,8 @@ public class Injector {
                 .build();
 
     }
-    public Injector(LoginView loginView) {
-        loginComponent = DaggerLoginComponent.builder().loginModule(new LoginModule(loginView)).build();
+    public Injector(LoginFragment loginFragment) {
+        loginComponent = DaggerLoginComponent.builder().loginModule(new LoginModule(loginFragment)).build();
     }
 
 

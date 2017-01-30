@@ -9,6 +9,6 @@ import android.os.Bundle;
 
 public interface AbstractFragmentCallback {
 
-    void addFragment(Class<? extends Fragment> fragment,boolean addToBackStack,Bundle args);
-    void replaceFragment(Class<? extends Fragment> fragment,boolean addToBackStack,Bundle args);
+    void addFragment(Class<? extends android.support.v4.app.Fragment> fragment,boolean addToBackStack,Bundle args);
+    void replaceFragment(Class<? extends android.support.v4.app.Fragment> fragment,boolean addToBackStack,Bundle args);
 }
