@@ -15,6 +15,8 @@ public interface LoginContract {
     interface View extends BaseView<Presenter>{
 
         void showProgress (String message);
+        boolean validate();
+        void submit();
     }
 
     interface Presenter extends BasePresenter{

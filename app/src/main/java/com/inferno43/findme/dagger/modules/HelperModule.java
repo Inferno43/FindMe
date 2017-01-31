@@ -6,6 +6,7 @@ import com.google.gson.FieldNamingPolicy;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.inferno43.findme.toolbox.SharedPref;
+import com.inferno43.findme.toolbox.Utils;
 
 import javax.inject.Singleton;
 
@@ -41,5 +42,11 @@ public class HelperModule {
     SharedPref provideSharedPrefs(){
         SharedPref sharedPref = new SharedPref();
         return sharedPref;
+    }
+
+    @Provides @Singleton
+    Utils providesUtils(){
+        Utils utils = Utils.getInstance();
+        return utils;
     }
 }

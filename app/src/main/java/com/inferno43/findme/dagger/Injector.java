@@ -11,7 +11,7 @@ import com.inferno43.findme.login.LoginFragment;
 import com.inferno43.findme.login.LoginModule;
 
 /**
- * Created by ${ mohanakrishnan.m} on 1/25/17.
+ * Created by saravana on 1/25/17.
  */
 
 public class Injector {

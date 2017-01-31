@@ -41,6 +41,7 @@ public class LoginPresenter implements LoginContract.Presenter{
     public void onClick(Context context, int viewid) {
         switch (viewid){
             case R.id.signIn:
+                mTasksView.submit();
                 Toast.makeText(context,"hi",Toast.LENGTH_LONG).show();
         }
 

@@ -5,6 +5,7 @@ import android.content.Context;
 import com.inferno43.findme.BaseActivity;
 import com.inferno43.findme.login.LoginActivity;
 import com.inferno43.findme.dagger.modules.HelperModule;
+import com.inferno43.findme.login.LoginFragment;
 
 import javax.inject.Singleton;
 
@@ -19,5 +20,5 @@ import dagger.Component;
 public interface HelperComponent {
 
     Context context();
-    void injectHelper(BaseActivity activity);
+    void injectHelper(LoginFragment Fragment);
 }
