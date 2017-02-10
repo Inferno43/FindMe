@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.widget.Toast;
 
 import com.inferno43.findme.R;
+import com.inferno43.findme.exceptions.EmptyTextException;
+import com.inferno43.findme.exceptions.InvalidArgumentException;
 
 import javax.inject.Inject;
 
@@ -27,29 +29,17 @@ public class LoginPresenter implements LoginContract.Presenter{
         mTasksView.setPresenter(this);
     }
 
-    @Override
-    public void result(int requestCode, int resultCode) {
 
-    }
-
-    @Override
-    public void startActvity(Intent intent) {
-
-    }
-
-    @Override
-    public void onClick(Context context, int viewid) {
-        switch (viewid){
-            case R.id.signIn:
-                mTasksView.submit();
-                Toast.makeText(context,"hi",Toast.LENGTH_LONG).show();
-        }
-
-    }
 
 
     @Override
     public void start() {
 
+    }
+
+    @Override
+    public void login() throws Exception {
+        if(mTasksView.isFieldsValid())
+             mTasksView.startHome();
     }
 }

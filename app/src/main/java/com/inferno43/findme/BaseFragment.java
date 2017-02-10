@@ -5,6 +5,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
 
 import com.inferno43.findme.callbacks.AbstractActivityCallback;
@@ -35,13 +37,21 @@ public abstract class BaseFragment extends Fragment implements AbstractActivityC
     }
 
     @Override
-    public void addFragment(Class<? extends Fragment> fragment, boolean addToBackStack, Bundle args) {
-        mCallback.addFragment(fragment, addToBackStack, args);
+    public void addFragment(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment,
+                            boolean addTobackstack, Bundle args){
+
     }
 
     @Override
-    public void replaceFragment(Class<? extends Fragment> fragment, boolean addToBackStack, Bundle args) {
-        mCallback.replaceFragment(fragment, addToBackStack, args);
+    public  void replaceFragment (@NonNull FragmentManager fragmentManager,@NonNull Fragment fragment,
+                                  boolean addTobackstack, Bundle args) {
+        String backStateName = fragment.getClass().getName() ;
+        if (args != null) fragment.setArguments(args);
+
+        FragmentTransaction transaction = fragmentManager.beginTransaction();
+        transaction.replace(R.id.contentFrame, fragment,backStateName);
+        if (addTobackstack) transaction.addToBackStack(backStateName);
+        transaction.commit();
     }
 
     @Override

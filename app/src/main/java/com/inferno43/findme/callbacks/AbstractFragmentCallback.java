@@ -1,7 +1,10 @@
 package com.inferno43.findme.callbacks;
 
-import android.app.Fragment;
+
 import android.os.Bundle;
+import android.support.annotation.NonNull;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 
 /**
  * Created by ${ mohanakrishnan.m} on 1/23/17.
@@ -9,6 +12,8 @@ import android.os.Bundle;
 
 public interface AbstractFragmentCallback {
 
-    void addFragment(Class<? extends android.support.v4.app.Fragment> fragment,boolean addToBackStack,Bundle args);
-    void replaceFragment(Class<? extends android.support.v4.app.Fragment> fragment,boolean addToBackStack,Bundle args);
+    void addFragment(@NonNull FragmentManager fragmentManager,@NonNull Fragment fragment,
+                     boolean addTobackstack, Bundle args);
+    void replaceFragment(@NonNull FragmentManager fragmentManager, @NonNull Fragment fragment,
+                         boolean addTobackstack, Bundle args);
 }

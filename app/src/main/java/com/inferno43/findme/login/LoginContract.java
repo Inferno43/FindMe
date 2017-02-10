@@ -5,6 +5,8 @@ import android.content.Intent;
 
 import com.inferno43.findme.BasePresenter;
 import com.inferno43.findme.BaseView;
+import com.inferno43.findme.exceptions.EmptyTextException;
+import com.inferno43.findme.exceptions.InvalidArgumentException;
 
 /**
  * Created by ${ mohanakrishnan.m} on 1/27/17.
@@ -14,15 +16,12 @@ public interface LoginContract {
 
     interface View extends BaseView<Presenter>{
 
-        void showProgress (String message);
-        boolean validate();
-        void submit();
+        void startHome();
+        boolean isFieldsValid() throws Exception;
     }
 
     interface Presenter extends BasePresenter{
-        void result(int requestCode, int resultCode);
-        void startActvity(Intent intent);
-        void onClick(Context context, int viewId);
+        void login() throws Exception;
 
     }
 }

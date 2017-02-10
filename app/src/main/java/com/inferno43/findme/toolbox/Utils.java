@@ -1,6 +1,7 @@
 package com.inferno43.findme.toolbox;
 
 import com.inferno43.findme.exceptions.EmptyTextException;
+import com.inferno43.findme.exceptions.InvalidArgumentException;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -30,7 +31,7 @@ public class Utils {
      * @return boolean
      * @throws EmptyTextException
      */
-    public boolean validUserName(String username) throws EmptyTextException{
+    public boolean validUserName(String username){
 
         return validUser.matcher(username).matches();
     }
@@ -41,7 +42,7 @@ public class Utils {
      * @return boolean
      * @throws EmptyTextException
      */
-    public boolean validpassword(String password) throws EmptyTextException {
+    public boolean validpassword(String password){
 
         return password.length()>0;
     }
@@ -55,5 +56,13 @@ public class Utils {
     public boolean validateEmail(String emailStr) {
         Matcher matcher = VALID_EMAIL_ADDRESS_REGEX .matcher(emailStr);
         return matcher.find();
+    }
+
+    public static double mapValueFromRangeToRange(double value, double fromLow, double fromHigh, double toLow, double toHigh) {
+        return toLow + ((value - fromLow) / (fromHigh - fromLow) * (toHigh - toLow));
+    }
+
+    public static double clamp(double value, double low, double high) {
+        return Math.min(Math.max(value, low), high);
     }
 }

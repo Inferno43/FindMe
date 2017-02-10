@@ -35,46 +35,23 @@ public abstract class BaseActivity extends AppCompatActivity implements Abstract
     }
 
     @Override
-    public void addFragment(Class<? extends android.support.v4.app.Fragment> fragment, boolean addToBackStack, Bundle args) {
+    public void addFragment(@NonNull FragmentManager fragmentManager,@NonNull Fragment fragment,
+                            boolean addTobackstack, Bundle args){
 
     }
 
     @Override
-    public void replaceFragment(Class<? extends android.support.v4.app.Fragment> fragment, boolean addToBackStack, Bundle args) {
-        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-        Fragment newFragment;
-        String backStateName ;
-        try {
-            // Create new fragment
-            newFragment = fragment.newInstance();
-            backStateName = newFragment.getClass().getName();
-            if (args != null) newFragment.setArguments(args);
-        } catch (InstantiationException e) {
-            e.printStackTrace();
-            return;
-        } catch (IllegalAccessException e) {
-            e.printStackTrace();
-            return;
-        }
-
-        if (addToBackStack) {
-            // Add this transaction to the back stack
-            ft.addToBackStack(backStateName);
-        }
-
-        // Change to a new fragment
-        ft.replace(R.id.contentFrame, newFragment, fragment.getClass().getSimpleName());
-        ft.commit();
-
-    }
-
-    public  void addFragmentToActivity (@NonNull FragmentManager fragmentManager,
-                                              @NonNull android.support.v4.app.Fragment fragment, int frameId) {
+    public  void replaceFragment (@NonNull FragmentManager fragmentManager,@NonNull Fragment fragment,
+                                        boolean addTobackstack, Bundle args) {
+        String backStateName = fragment.getClass().getName() ;
+        if (args != null) fragment.setArguments(args);
 
         FragmentTransaction transaction = fragmentManager.beginTransaction();
-        transaction.replace(frameId, fragment);
+        transaction.replace(R.id.contentFrame, fragment,backStateName);
+        if (addTobackstack) transaction.addToBackStack(backStateName);
         transaction.commit();
     }
+
 
     @Override
     protected void onResume() {

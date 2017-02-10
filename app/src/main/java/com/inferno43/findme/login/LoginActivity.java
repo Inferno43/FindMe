@@ -18,14 +18,12 @@ public class LoginActivity extends BaseActivity  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         context = this;
-        LoginFragment loginFragment =
-                (LoginFragment) getSupportFragmentManager().findFragmentById(R.id.contentFrame);
-        if (loginFragment == null ) {
-           // replaceFragment(LoginFragment.class,false,null);
-            loginFragment = new LoginFragment();
-            addFragmentToActivity(getSupportFragmentManager(),loginFragment,R.id.contentFrame);
+        LoginFragment loginFragment = new LoginFragment();
+
+        if (loginFragment != null ) {
+            replaceFragment(getSupportFragmentManager(),loginFragment, false, null);
+            new Injector(loginFragment).getLoginComponent().injectLoginPresenter(this);
         }
-        new Injector(loginFragment).getLoginComponent().injectLoginPresenter(this);
 
         loginPresenter.start();
 
