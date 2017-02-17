@@ -16,7 +16,7 @@ public class LoginActivity extends BaseActivity  {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        setContentView(R.layout.content_view);
         context = this;
         LoginFragment loginFragment = new LoginFragment();
 

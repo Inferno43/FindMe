@@ -7,7 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 
 /**
- * Created by ${ mohanakrishnan.m} on 1/23/17.
+ * Created by Saravana on 1/23/17.
  */
 
 public interface AbstractFragmentCallback {

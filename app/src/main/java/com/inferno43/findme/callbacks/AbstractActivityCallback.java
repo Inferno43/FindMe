@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 
 /**
- * Created by ${ mohanakrishnan.m} on 1/23/17.
+ * Created by Saravana on 1/23/17.
  */
 
 public interface AbstractActivityCallback {

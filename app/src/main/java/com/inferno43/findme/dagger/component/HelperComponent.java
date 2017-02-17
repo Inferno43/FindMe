@@ -12,7 +12,7 @@ import javax.inject.Singleton;
 import dagger.Component;
 
 /**
- * Created by ${ saravana } on 1/23/17.
+ * Created by Saravana on 1/23/17.
  */
 
 @Singleton

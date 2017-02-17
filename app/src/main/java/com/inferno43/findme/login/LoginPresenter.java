@@ -1,13 +1,5 @@
 package com.inferno43.findme.login;
 
-import android.content.Context;
-import android.content.Intent;
-import android.widget.Toast;
-
-import com.inferno43.findme.R;
-import com.inferno43.findme.exceptions.EmptyTextException;
-import com.inferno43.findme.exceptions.InvalidArgumentException;
-
 import javax.inject.Inject;
 
 /**

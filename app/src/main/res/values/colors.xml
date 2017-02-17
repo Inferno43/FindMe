@@ -6,4 +6,12 @@
     <color name="windowBackground">#E0E0E0</color>
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
+
+    <color name="blue_light">#89CAE6</color>
+    <color name="blue_dark">#7CAFEC</color>
+    <color name="gray">#D6DBE5</color>
+    <color name="gray_dark">#CAD0DA</color>
+    <color name="White_light">#F3F5F8</color>
+    <color name="brown_dark">#A79B98</color>
+    <color name="brown_light">#EBD8D3</color>
 </resources>

@@ -2,6 +2,8 @@ package com.inferno43.findme.login;
 
 import com.inferno43.findme.login.LoginContract;
 
+import javax.inject.Singleton;
+
 import dagger.Module;
 import dagger.Provides;
 
